@@ -307,7 +307,7 @@ function results(){
   el('div',{class:'msg',text:pct>=90?'Отлично!':(pct>=75?'Хороший результат':(pct>=50?'Неплохо, есть что подтянуть':'Нужно повторить материал'))}),
   el('div',{class:'stats'},[el('div',{class:'stat'},[el('span',{class:'lab',text:'Верно'}),el('b',{text:String(ok)})]),el('div',{class:'stat'},[el('span',{class:'lab',text:'Неверно'}),el('b',{text:String(bad)})]),el('div',{class:'stat'},[el('span',{class:'lab',text:'Всего'}),el('b',{text:String(N)})])]),
   el('div',{class:'row'},[
-   el('button',{class:'primary',type:'button',text:'Пройти заново',onclick:function(){var p=pool();var n=settings.count===0?p.length:Math.min(settings.count,p.length);if(!n){home();return;}begin(shuffle(p).slice(0,n).map(function(q){return q.id;}));}}),
+   el('button',{class:'primary',type:'button',text:'Пройти заново',onclick:function(){begin(run.qs.map(function(x){return x.q.id;}));}}),
    (wrong.length?el('button',{type:'button',text:'Повторить ошибки ('+wrong.length+')',onclick:function(){begin(shuffle(wrong.map(function(x){return x.q.id;})));}}):null),
    el('button',{class:'ghost',type:'button',text:'В меню',onclick:home})])]));
  function list(title,arr){
